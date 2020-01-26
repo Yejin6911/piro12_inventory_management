@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div style="width:70%; margin:20px auto;">
+        <div style="border:1px solid lightgray; margin-bottom:10px;">
+            <div style="margin:10px;">
+                <br/>
+                {% if product.photo %}
+                    <img src="{{ product.photo.url }}" style="max-width: 100%;"/>
+                {% endif %}
+                <br/><br/>
+                <h4>{{ product.name }}</h4>
+                <br/>
+                <div>가격: {{ product.price }}</div>
+                <br/>
+                <div>남은 수량: {{ product.left }}</div>
+                <br/>
+                <a href="{% url "stock:detail_account" product.pk %}">거래처: {{ product.account }}</a>
+                <br/><br/>
+            </div>
+        </div>
+        <div>
+            <button type="button" onclick="location.href='{% url 'stock:edit_product' product.pk %}'">수정</button>
+            <br>
+            <button type="button" onclick="location.href='{% url 'stock:delete_product' product.pk %}'">삭제</button>
+            <br>
+            <button type="button" onclick="location.href='{% url 'stock:list_product' %}'">목록</button>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:1px solid lightgray">
+    <a class="navbar-brand" href="{% url "stock:list_product" %}">
+        <img class ="rounded-circle" src="https://scontent-gmp1-1.xx.fbcdn.net/v/t1.0-1/p960x960/75332821_2462692640645362_6889331996112191488_o.jpg?_nc_cat=103&_nc_ohc=_eyu2eOo3nkAX8BPEzV&_nc_ht=scontent-gmp1-1.xx&_nc_tp=1002&oh=b43ada6dee420e780ce54e3e8a8bb427&oe=5EA09E16" width="30" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url "stock:create_product" %}">상품 등록<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="{% url "stock:create_account" %}">거래처 등록</a>
+            <a class="nav-item nav-link" href="{% url "stock:list_account" %}">거래처 관리</a>
+        </div>
+    </div>
+</nav>

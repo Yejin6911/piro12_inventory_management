@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div style="width:70%; margin:20px auto;">
+        <div style="border:1px solid lightgray; margin-bottom:10px;">
+            <div style="margin-left:15px;">
+                <br/>
+                <h4>{{ account.name }}</h4>
+                <br/>
+                <div>{{ account.phone }}</div>
+                <br/>
+                <div>{{ account.address }}</div>
+                <br/>
+                <hr/>
+                <div>거래상품목록</div>
+                {% for product in account.products.all %}
+                    <a href="{% url "stock:detail_product" product.pk %}">{{ product.name }}</a>
+                    <br/>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <button type="button" onclick="location.href='{% url 'stock:edit_account' account.pk %}'">수정</button>
+            <br>
+            <button type="button" onclick="location.href='{% url 'stock:delete_account' account.pk %}'">삭제</button>
+            <br>
+            <button type="button" onclick="location.href='{% url 'stock:list_account' %}'">목록</button>
+        </div>
+    </div>
+{% endblock %}

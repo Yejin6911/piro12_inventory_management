@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+s
+{% block content %}
+    <div class="row" style="margin:20px">
+        {% for product in products %}
+            <div class="col-sm-4 border" style="margin-bottom:25px">
+                {% if product.photo %}
+                    <img src="{{ product.photo.url }}" style="max-width: 95%; margin-top:10px"/>
+                {% endif %}
+                <a href="{% url 'stock:detail_product' product.pk %}">{{ product.name }}</a>
+                <div>가격 : {{ product.price }}</div>
+                <div>남은 수량 : {{ product.left }}</div>
+                <button type="button" onclick="location.href='{% url 'stock:left_add' product.pk %}'">+</button>
+                <button type="button" onclick="location.href='{% url 'stock:left_sub' product.pk %}'">-</button>
+                <br/><br/>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

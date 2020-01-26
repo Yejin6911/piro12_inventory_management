@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="row" style="margin-top:20px;">
+        {% for account in accounts %}
+            <div class="col-sm-4 border" style="margin-top:20px; padding:20px;">
+                <a href="{% url 'stock:detail_account' account.pk %}">{{ account.name }}</a>
+                <div>{{ account.phone }}</div>
+                <div>{{ account.address }}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
